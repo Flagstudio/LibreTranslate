@@ -18,8 +18,10 @@ def check_and_install_models(force=False, load_only_lang_codes=None):
         download_path = 'translate-ru_en-1_0.argosmodel'
         package.install_from_path(download_path)
 
+        print('Starting to install language model')
         # reload installed languages
         app.language.languages = translate.load_installed_languages()
+        print('End to install language model')
 
 
 def check_and_install_transliteration(force=False):
@@ -28,6 +30,7 @@ def check_and_install_transliteration(force=False):
         l.code for l in app.language.languages if l.code != "en"
     ]
 
+    print('Transliteration start')
     # check installed
     install_needed = []
     if not force:
@@ -40,8 +43,12 @@ def check_and_install_transliteration(force=False):
     else:
         install_needed = transliteration_languages
 
+    print('Transliteration mid')
+
     # install the needed transliteration packages
     if install_needed:
+        print('ATTENTION! INSTALL IS NEEDING')
+
         print(
             f"Installing transliteration models for the following languages: {', '.join(install_needed)}"
         )
@@ -52,3 +59,4 @@ def check_and_install_transliteration(force=False):
 
         for lang in install_needed:
             downloader.download(f"transliteration2.{lang}")
+            print('transliteration end maybe')

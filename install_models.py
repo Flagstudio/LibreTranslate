@@ -10,4 +10,4 @@ if __name__ == "__main__":
     if len(lang_codes) == 0 or lang_codes[0] == '':
         lang_codes = None
     check_and_install_models(force=True, load_only_lang_codes=lang_codes)
-    check_and_install_transliteration(force=True)
+    # check_and_install_transliteration(force=True)

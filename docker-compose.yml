@@ -2,10 +2,12 @@ version: "3"
 
 services:
   libretranslate:
-    container_name: libretranslate
+    container_name: libretranslatepython
     build: .
     restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: 1
     ports:
       - 5000:5000
     ## Uncomment above command and define your args if necessary
-    # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500 
+    # command: --ssl --ga-id MY-GA-ID --req-limit 100 --char-limit 500

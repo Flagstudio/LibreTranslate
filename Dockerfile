@@ -15,6 +15,7 @@ RUN pip install --upgrade pip
 
 COPY . .
 
+COPY LibreTranslate /root/.local/share/LibreTranslate
 
 RUN if [ "$with_models" = "true" ]; then  \
         # install only the dependencies first
